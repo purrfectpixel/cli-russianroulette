@@ -23,6 +23,7 @@ int MoveCyclinder(int b_pos, int bullets[6])
 
 int Roll(int b_pos, int bullets[6])
 {
+	cout << "Rolling the cyclinder..." << endl;
 	int t = rand() % 5;
 	bullets[b_pos] = 0;
 	bullets[t] = 1;

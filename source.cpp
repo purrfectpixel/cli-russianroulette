@@ -36,6 +36,10 @@ void Game()
 		}
 		else
 			choice = (rand() % 3) + 1;
+
+		if(cur_id == 0)
+			cout << string(50, '\n');
+
 		switch(choice)
 		{
 			case 1:
@@ -58,6 +62,7 @@ void Game()
 		}
 		//PrintCyclinder(bullets);
 		end = CheckDeath(players);
+
 		if(end != 1)
 			cur_id = ChangeTurn(cur_id);
 	}

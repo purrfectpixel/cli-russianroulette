@@ -1,84 +1,10 @@
 #include <iostream>
 #include <string>
+#include "headers/player.h"
+#include "headers/gamecontrol.h"
+#include "headers/revolver.h"
 
 using namespace std;
-
-class Player
-{
-	public:
-		string name;
-		int dead;
-};
-
-void PrintCyclinder(int bullets[6])
-{
-	for(int i = 0;i <= 5;i++)
-		cout << bullets[i] << " ";
-	cout << endl;
-}
-
-int CheckDeath(Player players[2])
-{
-	if(players[0].dead == 0 && players[1].dead == 0)
-		return 0;
-	if(players[0].dead == 1)
-		cout << players[0].name << " has perished!" << endl;
-	if(players[1].dead == 1)
-		cout << players[1].name << " has perished!" << endl;
-	return 1;
-}
-
-int CheckBound(int t)
-{
-	if(t > 5)
-		return 0;
-	return t;
-}
-
-int MoveCyclinder(int b_pos, int bullets[6])
-{
-	int t = b_pos;
-	
-	bullets[b_pos] = 0;
-	t++;
-	t = CheckBound(t);
-	bullets[t] = 1;
-	return t;
-}
-
-int Roll(int b_pos, int bullets[6])
-{
-	int t = rand() % 5;
-	bullets[b_pos] = 0;
-	bullets[t] = 1;
-	return t;
-}
-
-
-void Shoot(int shooter, int victim, int b_pos, int bullets[6], Player players[2])
-{
-	if(shooter == victim)
-		cout << players[shooter].name << " points the gun to their head and..." << endl;
-	else
-		cout << players[shooter].name << " points the gun to " << players[victim].name << "'s head and..." << endl;
-
-	if(bullets[0] == 1)
-	{
-		players[victim].dead = 1;
-		cout << "BANG!" << endl;
-		return;
-	}	
-
-	cout << "Nothing happened." << endl;
-	return;
-}
-
-int ChangeTurn(int cur_id)
-{
-	if(cur_id == 1)
-		return 0;
-	return 1;
-}
 
 void Game()
 {

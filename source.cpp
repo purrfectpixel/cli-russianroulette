@@ -6,13 +6,13 @@
 
 using namespace std;
 
-void Game()
+void AIGame()
 {
 	srand(time(NULL));
 	int bullets[] = {0,0,0,0,0,0}, b_pos = rand() % 5, choice, cur_id = 0, next_id = 1, end = 0;
 	bullets[b_pos] = 1;
 	Player players[2];
-	players[0].name = "DefaultPlayer";
+	players[0].name = Naming(players,0);
 	players[1].name = "AI";
 	players[0].dead = 0;
 	players[1].dead = 0;
@@ -71,5 +71,17 @@ void Game()
 
 int main()
 {
-	Game();
+	char choice;
+	do
+	{
+		AIGame();
+		cout << "Continue?[y/n]: \n";
+		cin >> choice;
+		getchar();
+
+		if(choice != 'y')
+			return 0;
+		cout << string(50, '\n');
+	}
+	while(1);
 }

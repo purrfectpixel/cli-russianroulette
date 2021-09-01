@@ -9,3 +9,10 @@ class Player
 		string name;
 		int dead;
 };
+
+string Naming(Player players[2], int id)
+{
+	cout << "Input your name, player " << id << ": ";
+	getline(cin, players[id].name);
+	return players[id].name;
+}
